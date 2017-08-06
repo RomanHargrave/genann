@@ -7,8 +7,8 @@ int main(int argc, char *argv[])
     printf("Train a small ANN to the XOR function using backpropagation.\n");
 
     /* Input and expected out data for the XOR function. */
-    const double input[4][2] = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
-    const double output[4] = {0, 1, 1, 0};
+    const genann_data_t input[4][2] = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
+    const genann_data_t output[4] = {0, 1, 1, 0};
     int i;
 
     /* New network with 2 inputs,

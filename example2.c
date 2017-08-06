@@ -9,8 +9,8 @@ int main(int argc, char *argv[])
     printf("Train a small ANN to the XOR function using random search.\n");
 
     /* Input and expected out data for the XOR function. */
-    const double input[4][2] = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
-    const double output[4] = {0, 1, 1, 0};
+    const genann_data_t input[4][2] = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
+    const genann_data_t output[4] = {0, 1, 1, 0};
     int i;
 
     /* New network with 2 inputs,
@@ -18,8 +18,8 @@ int main(int argc, char *argv[])
      * and 1 output. */
     genann *ann = genann_init(2, 1, 2, 1);
 
-    double err;
-    double last_err = 1000;
+    genann_data_t err;
+    genann_data_t last_err = 1000;
     int count = 0;
 
     do {
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
         /* Take a random guess at the ANN weights. */
         for (i = 0; i < ann->total_weights; ++i) {
-            ann->weight[i] += ((double)rand())/RAND_MAX-0.5;
+            ann->weight[i] += ((genann_data_t)rand())/RAND_MAX-0.5;
         }
 
         /* See how we did. */

@@ -118,7 +118,7 @@ static int lfails = 0;
 /* Assert two floats are equal (Within LTEST_FLOAT_TOLERANCE). */
 #define lfequal(a, b) do {\
     ++ltests;\
-    if (fabs((double)(a)-(double)(b)) > LTEST_FLOAT_TOLERANCE) {\
+    if (fabs((genann_data_t)(a)-(genann_data_t)(b)) > LTEST_FLOAT_TOLERANCE) {\
         ++lfails;\
         printf("%s:%d (%f != %f)\n", __FILE__, __LINE__, (double)(a), (double)(b));\
     }} while (0)
